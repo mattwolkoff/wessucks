@@ -58,13 +58,11 @@ module.exports = {
 	myTeams:function(req, res) {
    	console.log('get my teams');
 
-   	var path = 'http://fantasysports.yahooapis.com/fantasy/v2/league/12344/teams?format=json',
-   		stupid_path = "http://fantasysports.yahooapis.com/fantasy/v2/league/12344/players?format=json",
-   		crazy_path = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20fantasysports.leagues%20where%20league_key%3D'nhl.l.12344'&format=json&callback="
+   	var path = 'http://fantasysports.yahooapis.com/fantasy/v2/team/nhl.l.12344/roster?format=json'
 
-    FantasySports
+		FantasySports
         .request(req, res)
-        .api(crazy_path)
+        .api(path)
         .done(function(data) {
             
         	console.log('-----------------------------------------')
